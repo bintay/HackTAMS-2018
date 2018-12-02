@@ -511,6 +511,8 @@ app.post('/volunteer/:club/:eventid', redirectIfLoggedOut, function (req, res) {
          }
          if (!event || index == -1) {
             res.render('status', { title: 'Oops!', text: 'Volunteering not found.', user: req.user, backURL: '/club/' + club.name, backText: 'Back to club page' });
+         } else if (event.signedUp.indexOf(req.user._id) != -1) {
+            res.render('status', { title: 'Oops!', text: 'You already signed up for this volunteering.', user: req.user, backURL: '/club/' + club.name, backText: 'Back to club page' });
          } else if (event.signedUp.length < event.maxPeople) {
             var update = {};
             update.$push = {};
