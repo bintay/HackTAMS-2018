@@ -58,14 +58,27 @@ html, body {
       z-index: 10;
 
       .left {
-         line-height: 32px;
-         height: 32px;
+         line-height: 40px;
+         height: 40px;
          text-align: left;
          float: right;
-         margin-top: -32px;
+         margin-top: -42px;
          font-size: 16px;
          display: block;
-         width: 220px;
+         width: 280px;
+
+         .little-profile-picture {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: $lightGreen 2px solid;
+         }
+
+         .name {
+            position: relative;
+            top: -15px;
+            left: 10px;
+         }
       }
 
       .dropdown {
@@ -259,9 +272,13 @@ html, body {
       textarea {
          margin: 10px 0 0 0;
          padding: 10px;
-         width: calc(100% - 100px);
+         width: 100%;
          border: 2px solid $white;
          resize: vertical;
+
+         &[name='bio'] {
+            width: calc(100% - 100px);
+         }
 
          &:focus {
             border: 2px solid $darkGreen;
@@ -371,6 +388,15 @@ html, body {
       input[name='submit'] {
          width: 315px;
       }
+   }
+
+   .profile-picture {
+      display: block;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin: 0 auto;
+      border: $lightGreen 4px solid;
    }
    
    /*

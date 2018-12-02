@@ -2,6 +2,7 @@ extends base
 block body
    include sidebar
    section#main
+      img.profile-picture(src='/public/profile-pictures/' + profile.picture)
       h2.center.big= profile.name
       h2.center= '(' + profile.username + ')'
       p.center= profile.bio
