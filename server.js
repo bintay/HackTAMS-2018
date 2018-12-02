@@ -80,7 +80,8 @@ app.use(function (req, res, next) {
 // Homepage
 app.get('/', function (req, res) {
    if (req.session.userid) {
-      res.render('home', { title: 'Home', user: req.user });
+      res.redirect('/feed/')
+      //res.render('home', { title: 'Home', user: req.user });
    } else {
       res.render('status', { title: 'Welcome', text: 'This is the homepage when you\'re not logged in.', noHome: true })
    }
