@@ -7,7 +7,7 @@ block body
       p= event.hours + ' hours'
       form.confirmHours(action='/confirm-hours/' + club.name + '/' + event._id + '/', method='post')
          each userId in event.signedUp
-            label(for=userId + '-confirmed')= idToUser[userId].username
+            label(for=userId + '-confirmed')= idToUser[userId].name + ' (' +idToUser[userId].username + ')'
             input(type='checkbox', name=userId + '-confirmed', checked=hasHours[userId])
             br
          input(type='submit', name='submit', value='Update Hours')

@@ -337,7 +337,7 @@ app.post('/signup/', redirectIfLoggedIn, csrfProtection, function (req, res) {
             res.render('signup', { title: 'Sign Up', errors: signupErrors, csrfToken: req.csrfToken() });
          } else {
             bcrypt.hash(req.body.password, null, null, function (err, hash) {
-               User.create({ username: req.body.username, password: hash, email: req.body.email, clubsOwned: [], clubsFollowed: [] }, function (err, user) {
+               User.create({ username: req.body.username, password: hash, email: req.body.email, clubsOwned: [], clubsFollowed: [], name: req.body.name }, function (err, user) {
                   if (err) {
                      console.log(err);
                   }

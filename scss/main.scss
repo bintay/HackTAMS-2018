@@ -365,10 +365,11 @@ html, body {
    .confirmHours {
       input, label {
          margin: 10px 0 0 0;
+         width: 300px;
       }
 
-      input[type='submit'] {
-         width: 20%;
+      input[name='submit'] {
+         width: 315px;
       }
    }
    
