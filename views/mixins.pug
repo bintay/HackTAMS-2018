@@ -1,4 +1,4 @@
-mixin post(event, title, content, start, end, date, clubName)
+mixin post(event, title, content, start, end, date, clubName, userOwnsClub)
    div.post
       h2
          if (clubName)
@@ -11,9 +11,12 @@ mixin post(event, title, content, start, end, date, clubName)
          br
          p= event.hours + ' hours'
          p= event.signedUp.length + ' / ' + event.maxPeople + ' people signed up'
-         if (event.signedUp.length < event.maxPeople)
+         if (event.signedUp.length < event.maxPeople && event.signedUp.indexOf(user._id) == -1)
             form.signup(action='/volunteer/' + clubName + '/' + event._id, method='post')
                button(type='submit') Sign Up
+         if (userOwnsClub)
+            form.signup(action='/confirm-hours/' + clubName + '/' + event._id, method='get')
+               button(type='submit') Confirm Hours
       if (start && end)
          br
          p.date= 'From ' + ((start.getMonth() + 1) < 10 ? '0' : '') + (start.getMonth() + 1) + '/' + (start.getDate() < 10 ? '0' : '') + start.getDate() + '/' + (start.getFullYear()) + ' at ' + (start.getHours() < 10 ? '0' : '') + start.getHours() + ':' + (start.getMinutes() < 10 ? '0' : '') + start.getMinutes() + ' to ' + ((end.getMonth() + 1) < 10 ? '0' : '') + (end.getMonth() + 1) + '/' + (end.getDate() < 10 ? '0' : '') +  end.getDate() + '/' + (end.getFullYear()) + ' at ' + (end.getHours() < 10 ? '0' : '') +  end.getHours() + ':' + (end.getMinutes() < 10 ? '0' : '') + end.getMinutes() 
