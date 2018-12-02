@@ -4,8 +4,19 @@ block body
    include sidebar
    section#main
       div.calendar
+         - var i = 0;
+         - var hour = 0;
+         - while (hour < 24) {
+            p.time= (hour < 10 ? '0' : '') + (hour++) + ":00"
+         - }
          each day in week
             div.day
-               each event in day
-                  if (event.start.getDate() == event.end.getDate())
-                     div.event(style='margin-top: ' + (event.start.getHours() + event.start.getMinutes() / 60) * 100 + '; height: ' + (event.end.getHours() - event.start.getHours() + (event.end.getMinutes() - event.start.getMinutes()) / 60) + ';')
+               h3.center= daysOfTheWeek[i++]
+               .inner
+                  each event in day
+                     if (event.start.getDate() == event.end.getDate())
+                        div.event(style='position: absolute; top: calc(' + (event.start.getHours() + event.start.getMinutes() / 60) * 100 + 'px + 60px); height: calc(' + (event.end.getHours() - event.start.getHours() + (event.end.getMinutes() - event.start.getMinutes()) / 60) * 100 + 'px - 5px);')
+                           p= event.title
+                           p= 'From ' + (event.start.getHours() < 10 ? '0' : '') + event.start.getHours() + ':' + (event.start.getMinutes() < 10 ? '0' : '') + event.start.getMinutes() + ' to ' + (event.end.getHours() < 10 ? '0' : '') +  event.end.getHours() + ':' + (event.end.getMinutes() < 10 ? '0' : '') + event.end.getMinutes() 
+   script
+      | window.onload = (e) => document.getElementsByClassName('calendar')[0].scrollTop = 800;

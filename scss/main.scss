@@ -405,16 +405,62 @@ html, body {
       box-shadow: 0 0 5px #0009;
    }
    
-   /*
    .calendar {
       display: grid;
-      grid-template-rows: 9% 13% 13% 13% 13% 13% 13% 13% 9%;
+      $colWidth: calc(14% - 7px);
+      $rowHeight: 100px;
+      grid-template-columns: 49px $colWidth $colWidth $colWidth $colWidth $colWidth $colWidth $colWidth;
+      grid-template-rows: 50px $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight;
+      overflow-y: scroll;
+      height: calc(100vh - 160px);
+
+      .inner {
+         position: relative;
+      }
+
+      h3 {
+         position: fixed;
+         z-index: 1;
+         background: $black;
+         width: calc(14% - 47px);
+      }
+
+      .day {
+         border-left: 1px lighten($black, 10%) solid;
+         height: 2460px;
+         grid-row-start: 1;
+         grid-row-end: 25;
+
+         &:last-of-type {
+            border-right: 1px lighten($black, 10%) solid;
+         }
+
+         .event {
+            background: $lightGreen;
+            border-radius: 5px;
+            padding: 0;
+            width: 97%;
+            margin-left: 1.5%;
+         }
+      }
+
+      .time {
+         grid-column-start: 1;
+         grid-column-end: 2;
+      }
 
       @for $i from 1 through 7 {
-         .day:nth-child($i) {
-            grid-column-start: ($1 + 1); 
+         .day:nth-of-type(#{$i}) {
+            grid-column-start: $i + 1;
+            grid-column-end: $i + 2; 
+         }
+      }
+
+      @for $i from 1 through 24 {
+         .time:nth-of-type(#{$i}) {
+            grid-row-start: $i + 1;
+            grid-row-end: $i + 2; 
          }
       }
    }
-   */
 }
