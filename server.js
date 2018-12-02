@@ -288,6 +288,10 @@ app.get('/edit-post/:club/:eventid', redirectIfLoggedOut, function (req, res) {
    });
 });
 
+app.get('/calendar/', redirectIfLoggedOut, function (req, res) {
+   res.render('calendar', { title: 'Calendar', user: req.user, daysOfTheWeek: ['Sun.', 'Mon.', 'Tues.', 'Wed.', 'Thur.', 'Fri.', 'Sat.'], week: [[{title: "SciOly Practice", start: new Date('2018-12-03T19:00:00.000Z'), end: new Date('2018-12-04T05:59:59.000Z')}, {title: "Hm", start: new Date('2018-12-03T06:00:00.000Z'), end: new Date('2018-12-03T19:00:00.000Z')}], [], [], [], [], [], []] });
+});
+
 // ***
 // Post Requests
 // ***
