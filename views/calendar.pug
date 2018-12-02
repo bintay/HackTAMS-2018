@@ -15,8 +15,8 @@ block body
                .inner
                   each event in day
                      if (event.start.getDate() == event.end.getDate())
-                        div.event(style='position: absolute; top: calc(' + (event.start.getHours() + event.start.getMinutes() / 60) * 100 + 'px + 60px); height: calc(' + (event.end.getHours() - event.start.getHours() + (event.end.getMinutes() - event.start.getMinutes()) / 60) * 100 + 'px - 5px);')
+                        div.event(style='position: absolute; top: calc(' + (event.start.getHours() + event.start.getMinutes() / 60) * 100 + 'px + 60px); height: calc(' + (event.end.getHours() - event.start.getHours() + (event.end.getMinutes() - event.start.getMinutes()) / 60) * 100 + 'px - 45px);')
                            p= event.title
                            p= 'From ' + (event.start.getHours() < 10 ? '0' : '') + event.start.getHours() + ':' + (event.start.getMinutes() < 10 ? '0' : '') + event.start.getMinutes() + ' to ' + (event.end.getHours() < 10 ? '0' : '') +  event.end.getHours() + ':' + (event.end.getMinutes() < 10 ? '0' : '') + event.end.getMinutes() 
    script
-      | window.onload = (e) => document.getElementsByClassName('calendar')[0].scrollTop = 800;
+      | window.onload = (e) => document.getElementsByClassName('calendar')[0].scrollTop = 840;
