@@ -571,7 +571,7 @@ app.post('/volunteer/:club/:eventid', redirectIfLoggedOut, function (req, res) {
                   console.log(err);
                }
 
-               User.findByIdAndUpdate(req.user._id, {$push: { volunteering: { club: club.name, eventId: req.params.eventid, recieved: false } } }, function (err, user) {
+               User.findByIdAndUpdate(req.user._id, {$push: { volunteering: { club: club.name, eventId: req.params.eventid, recieved: false, hours: event.hours } } }, function (err, user) {
                   if (err) {
                      console.log(err);
                   }

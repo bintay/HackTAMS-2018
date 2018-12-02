@@ -10,7 +10,7 @@ var userSchema = new Schema({
    clubsFollowed: { type: [ ObjectId ], default: [] },
    email: {type: String, unique: true},
    bio: {type: String, default: 'This user is  CS student. As in, they don\'t have a bio.'},
-   volunteering: [ { club: String, eventId: ObjectId, recieved: { type: Boolean, default: false } } ],
+   volunteering: [ { club: String, eventId: ObjectId, recieved: { type: Boolean, default: false }, hours: Number } ],
    picture: { type: String, default: 'default-1.png' }
 });
 
