@@ -11,7 +11,7 @@ mixin post(event, title, content, start, end, date, clubName)
          br
          p= event.hours + ' hours'
          p= event.signedUp.length + ' / ' + event.maxPeople + ' people signed up'
-         if (event.signedUp.length < event.maxPeople)
+         if (event.signedUp.length < event.maxPeople && event.signedUp.indexOf(user._id) == -1)
             form.signup(action='/volunteer/' + clubName + '/' + event._id, method='post')
                button(type='submit') Sign Up
       if (start && end)
