@@ -9,7 +9,7 @@ mongoose.connect('mongodb://localhost:27017/tamsclub');
 // Set up express
 const express = require('express');
 const app = express();
-const port = 17142;
+const port = process.argv[2] || 17142;
 app.set('view engine', 'pug');
 
 // Other libs
