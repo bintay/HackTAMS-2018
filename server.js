@@ -496,21 +496,32 @@ app.post('/new/post/:club', redirectIfLoggedOut, function (req, res) {
    });
 });
 
-app.post('/volunteer/:club/:eventid', function (req, res) {
+app.post('/volunteer/:club/:eventid', redirectIfLoggedOut, function (req, res) {
    Club.findOne({ name: req.params.club }, function (err, club) {
       if (!club) {
          res.render('status', { title: 'Oops!', text: 'Club not found.', user: req.user, backURL: '/feed/', backText: 'Back to feed' });
       } else {
          var event;
+         var index = -1;
          for (var i in club.events) {
-            if (club.events[i] == req.params.eventid) {
+            if (club.events[i]._id == req.params.eventid) {
                event = club.events[i];
+               index = i;
             }
          }
-         if (!event) {
+         if (!event || index == -1) {
             res.render('status', { title: 'Oops!', text: 'Volunteering not found.', user: req.user, backURL: '/club/' + club.name, backText: 'Back to club page' });
-         } else if (event.signedUp.length < club.maxPeople) {
-            Club.update({ _id: club._id }, { events: [{ _id: req.params.eventid }] })
+         } else if (event.signedUp.length < event.maxPeople) {
+            var update = {};
+            update.$push = {};
+            update.$push['events.' + index + '.signedUp'] = req.user._id;
+            Club.update({ _id: club._id }, update, function (err, club2) {
+               if (err) {
+                  console.log(err);
+               }
+
+               res.redirect('/club/' + club.name);
+            });
          } else {
             res.render('status', { title: 'Too slow!', text: 'This volunteering is full.', user: req.user, backURL: '/club/' + club.name, backText: 'Back to club page' });
          }
