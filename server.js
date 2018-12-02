@@ -374,6 +374,10 @@ app.post('/settings/', redirectIfLoggedOut, csrfProtection, function (req, res) 
       }
    }
 
+   if (req.user.name != req.body.name) {
+      update.name = req.body.name;
+   }
+
    if (req.user.email != req.body.email) {
       if (!validateEmail(req.body.email)) {
          signupErrors.push('Email invalid.');
@@ -438,6 +442,9 @@ app.post('/settings/', redirectIfLoggedOut, csrfProtection, function (req, res) 
                   if (update.bio) {
                      req.user.bio = update.bio;
                   }
+                  if (update.name) {
+                     req.user.name = update.name;
+                  }
                   res.render('settings', { title: 'Settings', errors: signupErrors, user: req.user, csrfToken: req.csrfToken() });
                });
             });
@@ -454,6 +461,9 @@ app.post('/settings/', redirectIfLoggedOut, csrfProtection, function (req, res) 
                }
                if (update.bio) {
                   req.user.bio = update.bio;
+               }
+               if (update.name) {
+                  req.user.name = update.name;
                }
                res.render('settings', { title: 'Settings', errors: signupErrors, user: req.user, csrfToken: req.csrfToken() });
             });

@@ -259,7 +259,7 @@ html, body {
       textarea {
          margin: 10px 0 0 0;
          padding: 10px;
-         width: 100%;
+         width: calc(100% - 100px);
          border: 2px solid $white;
          resize: vertical;
 
