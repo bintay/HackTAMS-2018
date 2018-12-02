@@ -289,7 +289,50 @@ app.get('/edit-post/:club/:eventid', redirectIfLoggedOut, function (req, res) {
 });
 
 app.get('/calendar/', redirectIfLoggedOut, function (req, res) {
-   res.render('calendar', { title: 'Calendar', user: req.user, daysOfTheWeek: ['Sun.', 'Mon.', 'Tues.', 'Wed.', 'Thur.', 'Fri.', 'Sat.'], week: [[{title: "SciOly Practice", start: new Date('2018-12-03T19:00:00.000Z'), end: new Date('2018-12-04T05:59:59.000Z')}, {title: "Hm", start: new Date('2018-12-03T06:00:00.000Z'), end: new Date('2018-12-03T19:00:00.000Z')}], [], [], [], [], [], []] });
+   Club.find({ _id: { $in: req.user.clubsOwned } }, function (err, clubsOwned) {
+      if (err) {
+         console.log(err);
+      }
+
+      Club.find({ _id: { $in: req.user.clubsFollowed } }, function (err, clubsFollowed) {
+         if (err) {
+            console.log(err);
+         }
+
+         var posts = [];
+         for (var club of clubsOwned) {
+            for (var event of club.events) {
+               event.club = club.name;
+               posts.push(event);
+            }
+         }
+
+         for (var club of clubsFollowed) {
+            for (var event of club.events) {
+               event.club = club.name;
+               posts.push(event);
+            }
+         }
+
+         posts = posts.sort((a, b) => b.posted - a.posted);
+
+         var currentDate = new Date();
+         var lastSunday = currentDate - (currentDate.getMilliseconds() + 1000 * (currentDate.getSeconds() + 60 * (currentDate.getMinutes() + 60 * (currentDate.getHours() + 24 * (currentDate.getDay())))));
+
+         var week = [];
+         for (var i = 0; i < 7; ++i) {
+            week.push([]);
+         }
+
+         for (var i = 0; i < posts.length; ++i) {
+            if (posts[i].start > lastSunday + 1000 * 60 * 60 * 24 * 7 || posts[i].start < lastSunday) continue;
+            if (posts[i].hours > 0 && posts[i].signedUp.indexOf(req.user._id) == -1) continue;
+            week[posts[i].start.getDay()].push(posts[i]);
+         }
+
+         res.render('calendar', { title: 'Calendar', user: req.user, daysOfTheWeek: ['Sun.', 'Mon.', 'Tues.', 'Wed.', 'Thur.', 'Fri.', 'Sat.'], week: week });
+      });
+   });
 });
 
 // ***

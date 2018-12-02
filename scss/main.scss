@@ -438,8 +438,8 @@ html, body {
          .event {
             background: $lightGreen;
             border-radius: 5px;
-            padding: 0;
-            width: 97%;
+            padding: 20px;
+            width: calc(97% - 40px);
             margin-left: 1.5%;
          }
       }
