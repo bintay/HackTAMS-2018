@@ -3,7 +3,7 @@ block body
    include sidebar
    section#main
       include errors
-      form(action='/settings/', method='post')
+      form(action='/settings/', method='post', enctype="multipart/form-data")
          input(type="hidden" name="_csrf" value=csrfToken)
          label Username
          input(type='text' name='username' value=user.username)
@@ -19,6 +19,9 @@ block body
          br
          label Reset Password
          input(type='password' name='password' placeholder='New Password')
+         br
+         label Profile Picture
+         input(type="file", accept="image/png image/jpeg", name="avatar")
          br
          label
          input(type='submit' name='submit' value='Update Information')
