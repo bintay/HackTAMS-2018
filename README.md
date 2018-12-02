@@ -7,7 +7,7 @@ The code quality is... less than desirable
 
 Node modules weren't ignored because I didn't have a package.json initially because I'm a stupid with no mangos :/
 
-Its a club management app featureing
+It's a club management app featuring
 - A login system
 - Club sign ins
 - A newsfeed
