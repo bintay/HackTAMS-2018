@@ -1,0 +1,18 @@
+extends base
+
+block body
+   include sidebar
+   section#main
+      h2.center.big= club.name + ' Sign Ins'
+      br
+      h2.center Enter the following code into the sign ins tab
+      br
+      p.center.bigger= code
+      br
+      br
+      br
+      h2.center Signed In
+      each currentUser in people
+         p.center= currentUser.name + ' (' + currentUser.username + ')'
+      script
+         | setTimeout(() => location.reload(), 5000);

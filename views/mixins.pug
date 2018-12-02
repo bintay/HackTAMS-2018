@@ -6,7 +6,7 @@ mixin post(event, title, content, start, end, date, clubName, userOwnsClub)
             =  ' / ' 
          = title
       p.date.marginBottom= ((date.getMonth() + 1) < 10 ? '0' : '') + (date.getMonth() + 1) + '/' + (date.getDate() < 10 ? '0' : '') + date.getDate() + '/' + (date.getFullYear()) + ' at ' + (date.getHours() < 10 ? '0' : '') + date.getHours() + ':' + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes()
-      p !{content.replace(/</, '%lt;').replace(/\n/g, '<br>')}
+      p !{content.replace(/</, '&lt;').replace(/\n/g, '<br>')}
       if (event.hours && event.hours > 0 && event.signedUp)
          br
          p= event.hours + ' hours'
@@ -22,7 +22,15 @@ mixin post(event, title, content, start, end, date, clubName, userOwnsClub)
          p.date= 'From ' + ((start.getMonth() + 1) < 10 ? '0' : '') + (start.getMonth() + 1) + '/' + (start.getDate() < 10 ? '0' : '') + start.getDate() + '/' + (start.getFullYear()) + ' at ' + (start.getHours() < 10 ? '0' : '') + start.getHours() + ':' + (start.getMinutes() < 10 ? '0' : '') + start.getMinutes() + ' to ' + ((end.getMonth() + 1) < 10 ? '0' : '') + (end.getMonth() + 1) + '/' + (end.getDate() < 10 ? '0' : '') +  end.getDate() + '/' + (end.getFullYear()) + ' at ' + (end.getHours() < 10 ? '0' : '') +  end.getHours() + ':' + (end.getMinutes() < 10 ? '0' : '') + end.getMinutes() 
       if (userOwnsClub)
          form.signup(action='/edit-post/' + clubName + '/' + event._id + '/', method='get')
-               button(type='submit') Edit Post
+            button(type='submit') Edit Post
+         if (!(event.hours && event.hours > 0))
+            if (!event.signInCode || event.signInCode.length == 0)
+               form.signup(action='/create-signins/' + clubName + '/' + event._id + '/', method='post')
+                  button(type='submit') Create Sign Ins
+            else
+               form.signup(action='/view-signins/' + clubName + '/' + event._id + '/', method='get')
+                  button(type='submit') View Sign Ins
+
 
 mixin club(name, desc)
    div.clubListing

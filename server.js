@@ -236,6 +236,8 @@ app.get('/confirm-hours/:club/:eventid', redirectIfLoggedOut, function (req, res
 
       if (!club) {
          res.render('status', { title: 'Oops!', text: 'Club not found.', user: req.user, backURL: '/feed/', backText: 'Back to feed' });
+      } else if (req.user.clubsOwned.indexOf(club._id) == -1) {
+         res.render('status', { title: 'Oops!', text: 'You don\'t own this club.', user: req.user, backURL: '/club/' + club.name + '/', backText: 'Back to club page' });
       } else {
          var event;
          for (var i in club.events) {
@@ -272,6 +274,8 @@ app.get('/edit-post/:club/:eventid', redirectIfLoggedOut, function (req, res) {
 
       if (!club) {
          res.render('status', { title: 'Oops!', text: 'Club not found.', user: req.user, backURL: '/feed/', backText: 'Back to feed' });
+      } else if (req.user.clubsOwned.indexOf(club._id) == -1) {
+         res.render('status', { title: 'Oops!', text: 'You don\'t own this club.', user: req.user, backURL: '/club/' + club.name + '/', backText: 'Back to club page' });
       } else {
          var event;
          for (var i in club.events) {
@@ -333,6 +337,44 @@ app.get('/calendar/', redirectIfLoggedOut, function (req, res) {
          res.render('calendar', { title: 'Calendar', user: req.user, daysOfTheWeek: ['Sun.', 'Mon.', 'Tues.', 'Wed.', 'Thur.', 'Fri.', 'Sat.'], week: week });
       });
    });
+});
+
+app.get('/view-signins/:club/:eventid', redirectIfLoggedOut, function (req, res) {
+   Club.findOne({ name: req.params.club }, function (err, club) {
+      if (err) {
+         console.log(err);
+      }
+
+      if (!club) {
+         res.render('status', { title: 'Oops!', text: 'Club not found.', user: req.user, backURL: '/feed/', backText: 'Back to feed' });
+      } else if (req.user.clubsOwned.indexOf(club._id) == -1) {
+         res.render('status', { title: 'Oops!', text: 'You don\'t own this club.', user: req.user, backURL: '/club/' + club.name + '/', backText: 'Back to club page' });
+      } else {
+         var event;
+         for (var i in club.events) {
+            if (club.events[i]._id == req.params.eventid) {
+               event = club.events[i];
+            }
+         }
+         if (!event) {
+            res.render('status', { title: 'Oops!', text: 'Event not found.', user: req.user, backURL: '/club/' + club.name, backText: 'Back to club page' });
+         } else {
+            var code = event.signInCode;
+            
+            User.find({ _id: { $in: event.signedUp }}, function (err, users) {
+               for (var i in users) {
+                  users[i].password = null;
+                  delete users[i].password;
+               }
+               res.render('signins', { title: 'Sign Ins', user: req.user, code: code, club: club, event: event, people: users });
+            });
+         }
+      }
+   });
+});
+
+app.get('/signin/', redirectIfLoggedOut, function (req, res) {
+   res.render('signin', { title: 'Sign In', user: req.user });
 });
 
 // ***
@@ -751,6 +793,81 @@ app.post('/delete-post/:club/:eventid', redirectIfLoggedOut, function (req, res)
    });
 });
 
+app.post('/create-signins/:club/:eventid', redirectIfLoggedOut, function (req, res) {
+   Club.findOne({ name: req.params.club }, function (err, club) {
+      if (err) {
+         console.log(err);
+      }
+
+      if (!club) {
+         res.render('status', { title: 'Oops!', text: 'Club not found.', user: req.user, backURL: '/feed/', backText: 'Back to feed' });
+      } else if (req.user.clubsOwned.indexOf(club._id) == -1) {
+         res.render('status', { title: 'Oops!', text: 'You don\'t own this club.', user: req.user, backURL: '/club/' + club.name + '/', backText: 'Back to club page' });
+      } else {
+         var event;
+         for (var i in club.events) {
+            if (club.events[i]._id == req.params.eventid) {
+               event = club.events[i];
+            }
+         }
+         if (!event) {
+            res.render('status', { title: 'Oops!', text: 'Event not found.', user: req.user, backURL: '/club/' + club.name, backText: 'Back to club page' });
+         } else {
+            var code = "";
+            
+            for (var i = 0; i < 6; ++i) {
+               code += String.fromCharCode(Math.floor(Math.random() * 26 + 65));
+            }
+
+            Club.update({ _id: club._id, 'events._id': event._id }, { 'events.$.signInCode': code }, function (err, club2) {
+               if (err) {
+                  console.log(err);
+               }
+
+               res.redirect('/view-signins/' + req.params.club + '/' + req.params.eventid + '/');
+            });
+         }
+      }
+   });
+});
+
+app.post('/signin/', redirectIfLoggedOut, function (req, res) {
+   Club.findOne({ 'events.signInCode': req.body.code }, function (err, club) {
+      if (err) {
+         console.log(err);
+      }
+
+      if (!club) {
+         res.render('status', { title: 'Oops!', text: 'Club not found.', user: req.user, backURL: '/feed/', backText: 'Back to feed' });
+      } else if (req.user.clubsOwned.indexOf(club._id) == -1) {
+         res.render('status', { title: 'Oops!', text: 'You don\'t own this club.', user: req.user, backURL: '/club/' + club.name + '/', backText: 'Back to club page' });
+      } else {
+         var event;
+         for (var i in club.events) {
+            if (club.events[i].signInCode == req.body.code) {
+               event = club.events[i];
+            }
+         }
+         if (!event) {
+            res.render('status', { title: 'Oops!', text: 'Event not found.', user: req.user, backURL: '/club/' + club.name, backText: 'Back to club page' });
+         } else {
+            var code = "";
+            
+            for (var i = 0; i < 6; ++i) {
+               code += String.fromCharCode(Math.floor(Math.random() * 26 + 65));
+            }
+
+            Club.update({ _id: club._id, 'events._id': event._id }, { $push: {'events.$.signedUp': req.user._id} }, function (err, club2) {
+               if (err) {
+                  console.log(err);
+               }
+
+               res.redirect('/signin/');
+            });
+         }
+      }
+   });
+});
 
 // ***
 // Start the app
