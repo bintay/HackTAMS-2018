@@ -27,6 +27,35 @@ csrfProtection = csurf();
 // Middleware
 // ***
 
+// profile picture uploads
+var multer = require('multer');
+
+var uploadAvatar = multer({
+  storage: multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, './public/profile-pictures');
+    },
+    filename: function (req, file, cb) {
+      var fileExtentions = {
+        'image/jpeg': 'jpeg',
+        'image/png': 'png'
+      };
+      cb(null, file.fieldname + '-' + Date.now() + '-' + Math.floor(Math.random() * 100000) + '.' + fileExtentions[file.mimetype]);
+    }
+  }),
+  fileFilter: (req, file, cb) => {
+    req.hadFile = true;
+    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+      cb(null, true);
+    } else {
+      cb(null, false);
+    }
+  }
+});
+app.use(uploadAvatar.single('avatar'));
+
+var Jimp = require('jimp');
+
 // Set up automatic SCSS compiler
 const sassMiddleware = require('node-sass-middleware')
 app.use(sassMiddleware({
@@ -543,6 +572,85 @@ app.post('/settings/', redirectIfLoggedOut, csrfProtection, function (req, res) 
                }
 
                update.password = hash;
+
+               if (req.file) {
+                  Jimp.read(req.file.path, function (err, image) {
+                     image.resize(200, 200).quality(80).write(req.file.path);
+
+                     var path = req.file.path.split('/');
+                     update.picture = path[path.length - 1];
+
+                     User.update({ _id: req.user._id }, update, function (err, raw) {
+                        if (err) {
+                           console.log(err);
+                        }
+                        if (update.username) {
+                           req.user.username = update.username;
+                        }
+                        if (update.email) {
+                           req.user.email = update.email;
+                        }
+                        if (update.bio) {
+                           req.user.bio = update.bio;
+                        }
+                        if (update.name) {
+                           req.user.name = update.name;
+                        }
+                        req.user.picture = update.picture;
+
+                        res.render('settings', { title: 'Settings', errors: signupErrors, user: req.user, csrfToken: req.csrfToken() });
+                     });
+                  });
+               } else {
+                  User.update({ _id: req.user._id }, update, function (err, raw) {
+                     if (err) {
+                        console.log(err);
+                     }
+                     if (update.username) {
+                        req.user.username = update.username;
+                     }
+                     if (update.email) {
+                        req.user.email = update.email;
+                     }
+                     if (update.bio) {
+                        req.user.bio = update.bio;
+                     }
+                     if (update.name) {
+                        req.user.name = update.name;
+                     }
+
+                     res.render('settings', { title: 'Settings', errors: signupErrors, user: req.user, csrfToken: req.csrfToken() });
+                  });
+               }
+            });
+         } else {
+            if (req.file) {
+               Jimp.read(req.file.path, function (err, image) {
+                  image.resize(200, 200).quality(80).write(req.file.path);
+                  var path = req.file.path.split('/');
+                  update.picture = path[path.length - 1];
+
+                  User.update({ _id: req.user._id }, update, function (err, raw) {
+                     if (err) {
+                        console.log(err);
+                     }
+                     if (update.username) {
+                        req.user.username = update.username;
+                     }
+                     if (update.email) {
+                        req.user.email = update.email;
+                     }
+                     if (update.bio) {
+                        req.user.bio = update.bio;
+                     }
+                     if (update.name) {
+                        req.user.name = update.name;
+                     }
+                     req.user.picture = update.picture;
+                     res.render('settings', { title: 'Settings', errors: signupErrors, user: req.user, csrfToken: req.csrfToken() });
+                  });
+               });
+            } else {
                User.update({ _id: req.user._id }, update, function (err, raw) {
                   if (err) {
                      console.log(err);
@@ -561,26 +669,7 @@ app.post('/settings/', redirectIfLoggedOut, csrfProtection, function (req, res) 
                   }
                   res.render('settings', { title: 'Settings', errors: signupErrors, user: req.user, csrfToken: req.csrfToken() });
                });
-            });
-         } else {
-            User.update({ _id: req.user._id }, update, function (err, raw) {
-               if (err) {
-                  console.log(err);
-               }
-               if (update.username) {
-                  req.user.username = update.username;
-               }
-               if (update.email) {
-                  req.user.email = update.email;
-               }
-               if (update.bio) {
-                  req.user.bio = update.bio;
-               }
-               if (update.name) {
-                  req.user.name = update.name;
-               }
-               res.render('settings', { title: 'Settings', errors: signupErrors, user: req.user, csrfToken: req.csrfToken() });
-            });
+            }
          }
       });
    });
