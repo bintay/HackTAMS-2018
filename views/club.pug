@@ -17,4 +17,4 @@ block body
             a.button.center(href='/new/post/' + club.name) New post
       div.posts
          each post in club.events
-            +post(post, post.title, post.content, post.start, post.end, post.posted, club.name)
+            +post(post, post.title, post.content, post.start, post.end, post.posted, club.name, owns)

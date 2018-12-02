@@ -64,6 +64,7 @@ app.use(function (req, res, next) {
       User.find({ _id: req.session.userid }, function (err, users) {
          var user = users[0];
          user.password = null;
+         delete user.password;
          req.user = user;
          next();
       });
@@ -96,6 +97,7 @@ app.get('/user/:profile', redirectIfLoggedOut, function (req, res) {
          res.render('status', { title: 'Oops!', text: 'User ' + req.params.profile + ' not found.', user: req.user });
       } else {
          user.password = null;
+         delete user.password;
          res.render('profile', { title: req.params.profile + 's Profile', profile: user, user: req.user });
       }
    });
@@ -225,6 +227,43 @@ app.get('/feed/', redirectIfLoggedOut, function (req, res) {
    });
    
 });
+
+app.get('/confirm-hours/:club/:eventid', redirectIfLoggedOut, function (req, res) {
+   Club.findOne({ name: req.params.club }, function (err, club) {
+      if (err) {
+         console.log(err);
+      }
+
+      if (!club) {
+         res.render('status', { title: 'Oops!', text: 'Club not found.', user: req.user, backURL: '/feed/', backText: 'Back to feed' });
+      } else {
+         var event;
+         for (var i in club.events) {
+            if (club.events[i]._id == req.params.eventid) {
+               event = club.events[i];
+            }
+         }
+         if (!event) {
+            res.render('status', { title: 'Oops!', text: 'Volunteering not found.', user: req.user, backURL: '/club/' + club.name, backText: 'Back to club page' });
+         } else {
+            User.find({_id: { $in: event.signedUp }}, function (err, users) {
+               var idToUser = {};
+               var hasHours = {};
+               for (var user of users) {
+                  user.password = null;
+                  delete user.password;
+                  idToUser[user._id] = user;
+                  console.log(user);
+                  hasHours[user._id] = user.volunteering.filter(v => v.eventId == req.params.eventid)[0].recieved;
+               }
+               console.log(idToUser);
+               res.render('hours', { title: 'Confirm Hours', user: req.user, event: event, idToUser: idToUser, club: club, hasHours: hasHours });
+            });
+         }
+      }
+   });
+});
+
 // ***
 // Post Requests
 // ***
@@ -298,7 +337,7 @@ app.post('/signup/', redirectIfLoggedIn, csrfProtection, function (req, res) {
             res.render('signup', { title: 'Sign Up', errors: signupErrors, csrfToken: req.csrfToken() });
          } else {
             bcrypt.hash(req.body.password, null, null, function (err, hash) {
-               User.create({ username: req.body.username, password: hash, email: req.body.email, clubsOwned: [], clubsFollowed: [] }, function (err, user) {
+               User.create({ username: req.body.username, password: hash, email: req.body.email, clubsOwned: [], clubsFollowed: [], name: req.body.name }, function (err, user) {
                   if (err) {
                      console.log(err);
                   }
@@ -485,7 +524,7 @@ app.post('/new/post/:club', redirectIfLoggedOut, function (req, res) {
             startDate = new Date(Date.parse(req.body.startdate + ' ' + req.body.starttime));
             endDate = new Date(Date.parse(req.body.enddate + ' ' + req.body.endtime));
          }
-         Club.findByIdAndUpdate(club._id, { $push: { "events": { start: startDate, end: endDate, posted: new Date(), title: req.body.title, content: req.body.content, hours: (req.body.hasvolunteering ? req.body.hours : 0), maxPeople: req.body.people, signedUp: [] } } }, function (err, club) {
+         Club.findByIdAndUpdate(club._id, { $push: { "events": { start: startDate, end: endDate, posted: new Date(), title: req.body.title, content: req.body.content, hours: (req.body.hasvolunteer ? req.body.hours : 0), maxPeople: req.body.people, signedUp: [] } } }, function (err, club) {
             if (err) {
                console.log(err);
             }
@@ -522,7 +561,13 @@ app.post('/volunteer/:club/:eventid', redirectIfLoggedOut, function (req, res) {
                   console.log(err);
                }
 
-               res.redirect('/club/' + club.name);
+               User.findByIdAndUpdate(req.user._id, {$push: { volunteering: { club: club.name, eventId: req.params.eventid, recieved: false } } }, function (err, user) {
+                  if (err) {
+                     console.log(err);
+                  }
+
+                  res.redirect('/club/' + club.name);
+               });
             });
          } else {
             res.render('status', { title: 'Too slow!', text: 'This volunteering is full.', user: req.user, backURL: '/club/' + club.name, backText: 'Back to club page' });
@@ -530,6 +575,35 @@ app.post('/volunteer/:club/:eventid', redirectIfLoggedOut, function (req, res) {
       }
    });
 });
+
+app.post('/confirm-hours/:club/:eventid', redirectIfLoggedOut, function (req, res) {
+   Club.findOne({ name: req.params.club }, function (err, club) {
+      if (!club) {
+         res.render('status', { title: 'Oops!', text: 'Club not found.', user: req.user, backURL: '/feed/', backText: 'Back to feed' });
+      } else {
+         var event;
+         var index = -1;
+         for (var i in club.events) {
+            if (club.events[i]._id == req.params.eventid) {
+               event = club.events[i];
+               index = i;
+            }
+         }
+         if (!event || index == -1) {
+            res.render('status', { title: 'Oops!', text: 'Volunteering not found.', user: req.user, backURL: '/club/' + club.name, backText: 'Back to club page' });
+         } else {
+            (async function () {
+               for (var userId of event.signedUp) {
+                  var query = User.update({_id: userId, 'volunteering.eventId': req.params.eventid}, { 'volunteering.$.recieved': req.body[userId + '-confirmed'] != null }, null);
+                  var result = await query.exec();
+               }
+               res.redirect('/confirm-hours/' + club.name + '/' + req.params.eventid + '/');
+            })();
+         }
+      }
+   });
+});
+
 
 // ***
 // Start the app
