@@ -1,0 +1,10 @@
+extends base
+
+block body
+   include sidebar
+   section#main
+      form.small(action='/signin/', method='post')
+         label Sign In Code
+         input(type='text', name='code', value='', placeholder='ABCDEF')
+         label
+         input(type='submit', name='submit', value='Sign In')
