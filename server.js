@@ -112,7 +112,7 @@ app.get('/', function (req, res) {
       res.redirect('/feed/')
       //res.render('home', { title: 'Home', user: req.user });
    } else {
-      res.render('status', { title: 'Welcome', text: 'This is the homepage when you\'re not logged in.', noHome: true })
+      res.render('index', { title: 'Home' });
    }
 });
 
