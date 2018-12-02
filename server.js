@@ -485,7 +485,7 @@ app.post('/new/post/:club', redirectIfLoggedOut, function (req, res) {
             startDate = new Date(Date.parse(req.body.startdate + ' ' + req.body.starttime));
             endDate = new Date(Date.parse(req.body.enddate + ' ' + req.body.endtime));
          }
-         Club.findByIdAndUpdate(club._id, { $push: { "events": { start: startDate, end: endDate, posted: new Date(), title: req.body.title, content: req.body.content, hours: req.body.hours, maxPeople: req.body.people, signedUp: [] } } }, function (err, club) {
+         Club.findByIdAndUpdate(club._id, { $push: { "events": { start: startDate, end: endDate, posted: new Date(), title: req.body.title, content: req.body.content, hours: (req.body.hasvolunteering ? req.body.hours : 0), maxPeople: req.body.people, signedUp: [] } } }, function (err, club) {
             if (err) {
                console.log(err);
             }
