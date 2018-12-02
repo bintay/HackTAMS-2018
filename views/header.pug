@@ -4,14 +4,14 @@ header
    p.left
       if (!user)
          a(href="/login/") Log In
-         | &nbsp;&nbsp;/&nbsp;&nbsp;
+         = '  /  '
          a(href="/signup/") Sign Up
       else
-         // comment to fix syntax highlighting
          span.dropdown
-            = user.username
-            | &nbsp;&nbsp;&nbsp;
-            i(class="fas fa-angle-down")
+            img.little-profile-picture(src='/public/profile-pictures/' + user.picture)
+            span.name= user.username
+               | &nbsp;&nbsp;&nbsp;
+               i(class="fas fa-angle-down")
             span.dropdownContent
                span.invisible
                svg(viewbox="0 0 5 10")

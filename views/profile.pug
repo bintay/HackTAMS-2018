@@ -2,6 +2,12 @@ extends base
 block body
    include sidebar
    section#main
+      img.profile-picture(src='/public/profile-pictures/' + profile.picture)
       h2.center.big= profile.name
       h2.center= '(' + profile.username + ')'
+      br
       p.center= profile.bio
+      if (profile.username == user.username)
+         br
+         p.center= user.volunteering.reduce((a, b) => a + b.hours, 0) + ' hours submitted'
+         p.center= user.volunteering.reduce((a, b) => a + (b.recieved ? b.hours : 0), 0) + ' hours approved'

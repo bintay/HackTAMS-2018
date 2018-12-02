@@ -8,6 +8,9 @@ block body
          label Username
          input(type='text' name='username' value=user.username)
          br
+         label Name
+         input(type='text' name='name' value=user.name)
+         br
          label Bio
          textarea(name='bio')= user.bio
          br
@@ -17,4 +20,5 @@ block body
          label Reset Password
          input(type='password' name='password' placeholder='New Password')
          br
+         label
          input(type='submit' name='submit' value='Update Information')
