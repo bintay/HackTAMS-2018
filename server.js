@@ -264,6 +264,30 @@ app.get('/confirm-hours/:club/:eventid', redirectIfLoggedOut, function (req, res
    });
 });
 
+app.get('/edit-post/:club/:eventid', redirectIfLoggedOut, function (req, res) {
+   Club.findOne({ name: req.params.club }, function (err, club) {
+      if (err) {
+         console.log(err);
+      }
+
+      if (!club) {
+         res.render('status', { title: 'Oops!', text: 'Club not found.', user: req.user, backURL: '/feed/', backText: 'Back to feed' });
+      } else {
+         var event;
+         for (var i in club.events) {
+            if (club.events[i]._id == req.params.eventid) {
+               event = club.events[i];
+            }
+         }
+         if (!event) {
+            res.render('status', { title: 'Oops!', text: 'Event not found.', user: req.user, backURL: '/club/' + club.name, backText: 'Back to club page' });
+         } else {
+            res.render('editpost', { title: 'Edit', user: req.user, club: club, event: event });
+         }
+      }
+   });
+});
+
 // ***
 // Post Requests
 // ***
@@ -590,6 +614,8 @@ app.post('/confirm-hours/:club/:eventid', redirectIfLoggedOut, function (req, re
    Club.findOne({ name: req.params.club }, function (err, club) {
       if (!club) {
          res.render('status', { title: 'Oops!', text: 'Club not found.', user: req.user, backURL: '/feed/', backText: 'Back to feed' });
+      } else if (req.user.clubsOwned.indexOf(club._id) == -1) {
+         res.render('status', { title: 'Oops!', text: 'You don\'t own this club!', user: req.user, backURL: '/club/' + club.name + '/', backText: 'Back to club page' });
       } else {
          var event;
          var index = -1;
@@ -609,6 +635,70 @@ app.post('/confirm-hours/:club/:eventid', redirectIfLoggedOut, function (req, re
                }
                res.redirect('/confirm-hours/' + club.name + '/' + req.params.eventid + '/');
             })();
+         }
+      }
+   });
+});
+
+app.post('/edit-post/:club/:eventid', redirectIfLoggedOut, function (req, res) {
+   Club.findOne({ name: req.params.club }, function (err, club) {
+      if (err) {
+         console.log(err);
+      }
+
+      if (!club) {
+         res.render('status', { title: 'Oops!', text: 'Club not found.', user: req.user, backURL: '/feed/', backText: 'Back to feed' });
+      } else if (req.user.clubsOwned.indexOf(club._id) == -1) {
+         res.render('status', { title: 'Oops!', text: 'You don\'t own this club!', user: req.user, backURL: '/club/' + club.name + '/', backText: 'Back to club page' });
+      } else {
+         var event;
+         for (var i in club.events) {
+            if (club.events[i]._id == req.params.eventid) {
+               event = club.events[i];
+            }
+         }
+         if (!event) {
+            res.render('status', { title: 'Oops!', text: 'Event not found.', user: req.user, backURL: '/club/' + club.name, backText: 'Back to club page' });
+         } else {
+            Club.update({ _id: club._id, 'events._id': event._id }, { 'events.$.title': req.body.title, 'events.$.content': req.body.content }, function (err, club2) {
+               if (err) {
+                  console.log(err);
+               }
+
+               res.redirect('/edit-post/' + req.params.club + '/' + req.params.eventid + '/');
+            });
+         }
+      }
+   });
+});
+
+app.post('/delete-post/:club/:eventid', redirectIfLoggedOut, function (req, res) {
+   Club.findOne({ name: req.params.club }, function (err, club) {
+      if (err) {
+         console.log(err);
+      }
+
+      if (!club) {
+         res.render('status', { title: 'Oops!', text: 'Club not found.', user: req.user, backURL: '/feed/', backText: 'Back to feed' });
+      } else if (req.user.clubsOwned.indexOf(club._id) == -1) {
+         res.render('status', { title: 'Oops!', text: 'You don\'t own this club!', user: req.user, backURL: '/club/' + club.name + '/', backText: 'Back to club page' });
+      } else {
+         var event;
+         for (var i in club.events) {
+            if (club.events[i]._id == req.params.eventid) {
+               event = club.events[i];
+            }
+         }
+         if (!event) {
+            res.render('status', { title: 'Oops!', text: 'Event not found.', user: req.user, backURL: '/club/' + club.name, backText: 'Back to club page' });
+         } else {
+            Club.update({ _id: club._id }, { $pull: { events: { _id: event._id } } }, function (err, club2) {
+               if (err) {
+                  console.log(err);
+               }
+
+               res.redirect('/club/' + req.params.club + '/');
+            });
          }
       }
    });

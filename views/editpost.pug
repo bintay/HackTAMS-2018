@@ -1,0 +1,19 @@
+extends base
+block body
+   include sidebar
+   section#main
+      include errors
+      h2.center Edit Post
+      form.post.center(action='/edit-post/' + club.name + '/' + event._id + '/', method='post')
+         input(type="hidden" name="_csrf" value=csrfToken)
+         label(for='title') Title
+         input(type='text' name='title' value=event.title placeholder='Post title...')
+         br
+         label(for='password') Content
+         textarea(name='content')= event.content
+         br
+         label(for='submit')
+         input(type='submit', name='submit', value='Edit Post')
+         label
+         button.long(type='submit', formaction='/delete-post/' + club.name + '/' + event._id) Delete Post
+      script(src='/public/js/post.js')
