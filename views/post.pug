@@ -1,0 +1,43 @@
+extends base
+block body
+   include sidebar
+   section#main
+      include errors
+      h2.center New Post
+      form.post.center(action='/new/post/' + club.name, method='post')
+         input(type="hidden" name="_csrf" value=csrfToken)
+         label(for='title') Title
+         input(type='text' name='title' value='' placeholder='Post title...')
+         br
+         label(for='password') Content
+         textarea(name='content') This post needs content!
+         br
+         label(onclick='toggleTimeDisplay()' for='hastime') Has Time
+         input#hasTime(onclick='toggleTimeDisplay()' type='checkbox' name='hastime')
+         div.hidden#timeInputs
+            br
+            label(for='startdate') Start Date
+            input(type='date' name='startdate')
+            br
+            label(for='starttime') Start Time
+            input(type='time' name='starttime')
+            br
+            label(for='enddate') End Date
+            input(type='date' name='enddate')
+            br
+            label(for='endtime') End Time
+            input(type='time' name='endtime')
+         br
+         label(onclick='toggleVolunteerDisplay()' for='hasvolunteer') Volunteering
+         input#hasVolunteer(onclick='toggleVolunteerDisplay()' type='checkbox' name='hasvolunteer')
+         div.hidden#volunteerInputs
+            br
+            label(for='hours') Hours
+            input(type='number', value='1', name='hours')
+            br
+            label(for='people') Max People
+            input(type='number', value='4', name='people')
+         br
+         label(for='submit')
+         input(type='submit' name='submit' value='Post')
+      script(src='/public/js/post.js')

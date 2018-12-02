@@ -1,0 +1,11 @@
+extends base
+block body
+   section#small
+      h2.center= title
+      p.center= text
+      if (backURL)
+         p.center
+            a(href=backURL)= (backText || 'Go back')
+      if (!noHome)
+         p.center
+            a(href='/') Go home

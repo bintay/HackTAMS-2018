@@ -1,0 +1,15 @@
+extends base
+block body
+   section#small
+      include errors
+      h2 Login
+      form(action='/login/' method='post')
+         input(type="hidden" name="_csrf" value=csrfToken)
+         label(for='username') Username
+         input(type='text' name='username' value='' placeholder='username')
+         br
+         label(for='password') Password
+         input(type='password' name='password' value='' placeholder='password')
+         br
+         label(for='submit')
+         input(type='submit' name='submit' value='Log In')

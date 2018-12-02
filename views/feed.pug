@@ -1,0 +1,8 @@
+extends base
+
+block body
+   include sidebar
+   section#main
+      div.posts
+         each post in posts
+            +post(post, post.title, post.content, post.start, post.end, post.posted, post.club)

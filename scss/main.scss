@@ -1,0 +1,376 @@
+@import "colors";
+@import url('https://fonts.googleapis.com/css?family=Lato|Roboto+Condensed');
+
+html, body {
+   background: $black;
+   margin: 0;
+   padding: 0;
+
+   h1, h2, h3, h4, h5, h6 {
+      &, & a {
+         font-family: 'Roboto Condensed', sans-serif;
+         margin: 0;
+         color: $text;
+         text-decoration: none;
+      }
+   }
+
+   p, a, label, input, span, textarea, button {
+      font-family: 'Lato', sans-serif;
+      margin: 0;
+   }
+
+   p, a, label, span {
+      color: $text;
+   }
+
+   .marginBottom {
+      margin-bottom: 20px;
+   }
+
+   .center {
+      text-align: center;
+   }
+
+   .blockCenter {
+      display: block;
+      margin: 0 auto;
+      width: 30%;
+   }
+
+   .underline {
+      text-decoration: underline;
+   }
+
+   .big {
+      font-size: 40px;
+   }
+
+   .hidden {
+      display: none;
+   }
+
+   header {
+      background: $darkGreen;
+      padding: 30px;
+      // position and z-index set so that the side bar shadow does not overlap the header
+      position: relative;
+      z-index: 10;
+
+      .left {
+         line-height: 32px;
+         height: 32px;
+         text-align: left;
+         float: right;
+         margin-top: -32px;
+         font-size: 16px;
+         display: block;
+         width: 220px;
+      }
+
+      .dropdown {
+         cursor: pointer;
+
+         .dropdownContent {
+            position: absolute;
+            right: 135px;
+            top: 80px;
+            display: none;
+            background: $white;
+            border-radius: 8px;
+            width: 140px;
+            padding: 8px 0 10px 0;
+            text-align: left;
+            box-shadow: 0 0 5px #0009;
+
+            .invisible {
+               display: block;
+               background: #000;
+               opacity: 0;
+               height: 30px;
+               width: 140px;
+               position: absolute;
+               left: 0;
+               top: -30px;
+            }
+
+            svg {
+               height: 20px;
+               width: 20px;
+               transform: rotate(90deg);
+               fill: $white;
+               position: absolute;
+               top: -15px;
+               left: 23px;
+            }
+
+            a {
+               text-decoration: none;
+               display: block;
+               margin: 0;
+               padding-left: 20px;
+               color: $black;
+
+               &:hover {
+                  background: $grey;
+               }
+            }
+         }
+
+         &:hover {
+            .dropdownContent {
+               display: block;
+            }
+         }
+      }
+   }
+
+   .gridContainer {
+      display: grid;
+      grid-template-columns: 200px auto;
+   }
+
+   #sidebar {
+      // position and z-index set so that the shadow does not overlap the header
+      position: fixed;
+      z-index: 9;
+      // take up the first column of the grid container
+      grid-column-start: 1;
+      grid-column-end: 2;
+      // decoration on the side
+      border-right: solid 1px $darkGreen;
+      box-shadow: 0 0 5px #000;
+      padding: 30px 0;
+      padding-top: 287px;
+      top: -157px;
+      height: calc(100vh);
+
+      a {
+         display: block;
+         height: 50px;
+         line-height: 50px; // this centers the link vertically
+         padding: 0 30px;
+         margin: 0;
+         transition: background 0.1s;
+         text-decoration: none;
+
+         i {
+            display: inline-block;
+            font-size: 30px;
+            width: 50px;
+         }
+
+         &:hover {
+            background: $darkGreen;
+            text-decoration: underline;
+         }
+      }
+   }
+
+   #main {
+      // take up the second column of the grid container
+      grid-column-start: 2;
+      grid-column-end: 3;
+      padding: 30px;
+   }
+
+   #full {
+      grid-column-start: 1;
+      grid-column-end: 3;
+      padding: 30px 10%;
+   }
+
+   #small {
+      grid-column-start: 1;
+      grid-column-end: 3;
+      padding: 30px 30%;
+   }
+
+   .error {
+      display: block;
+      margin: 0 0 10px 0;
+      background: $lightGreen;
+      border: $darkGreen 2px solid;
+      border-radius: 4px;
+      width: calc(100% - 24px);
+      padding: 10px;
+   }
+   
+   .clubList {
+      margin: 20px 0;
+
+      .clubListing {
+         width: 40%;
+         margin: 0 30%;
+         padding: 20px;
+         border-top: 1px lighten($background, 20%) solid;
+
+         &:last-of-type {
+            border-bottom: 1px lighten($background, 20%) solid;
+         }
+
+         &:odd {
+            background: lighten($background, 10%);
+         }
+
+         a {
+            text-decoration: none;
+         }
+      }
+   }
+
+   button, a.button {
+      height: 38.4px;
+      margin: 0 0 0 10px;
+      outline: none;
+      border: 2px $white solid;
+      background: $white;
+      color: $black;
+      transition: background 0.1s, border 0.1s, color 0.1s;
+
+      &.full {
+         margin-top: 20px;
+         width: calc(60% + 10px);
+      }
+
+      &:hover {
+         background: $lightGreen;
+         border: 2px solid $darkGreen;
+         color: $white;
+      }
+   }
+
+   a.button {
+      display: block;
+      padding: 5px;
+      width: 30%;
+      margin: 0 auto;
+   }
+
+   form {
+      padding-bottom: 30px;
+
+      label {
+         width: 100px;
+         display: inline-block;
+         margin: 20px 0;
+      }
+
+      textarea {
+         margin: 10px 0 0 0;
+         padding: 10px;
+         width: 100%;
+         border: 2px solid $white;
+         resize: vertical;
+
+         &:focus {
+            border: 2px solid $darkGreen;
+         }
+      }
+
+      input {
+         width: calc(100% - 100px);
+         display: inline-block;
+         padding: 10px;
+         background: $white;
+         color: $black;
+         border: 2px solid $white;
+
+         &:focus {
+            border: 2px solid $darkGreen;
+         }
+
+         &[name='submit'] {
+            margin: 10px 0;
+            padding: 8px;
+            transition: background 0.1s, border 0.1s, color 0.1s;
+            &:hover {
+               background: $lightGreen;
+               border: 2px solid $darkGreen;
+               color: $white;
+            }
+         }
+
+         &[type='checkbox'] {
+            margin: 0;
+            width: 20px;
+         }
+      }
+
+      &.post {
+         textarea {
+            width: calc(100% - 100px);
+            resize: vertical;
+            display: inline-block;
+         }
+      }
+
+      &.small {
+         width: 50%;
+         margin: 0 auto;
+
+         input {
+            width: calc(100% - 100px);
+         }
+
+         &.add {
+            margin-top: 30px;
+            input {
+               width: 100%;
+            }
+         }
+      }
+   }
+
+   .search {
+      margin-left: auto !important;
+      padding-left: 50px;
+      width: calc(40% + 50px) !important;
+
+      input[type='text'] {
+         width: calc(100% - 100px);
+      }
+   }
+
+   .post {
+      width: 50%;
+      margin: 0 auto 0 auto;
+      padding: 50px;
+      border-bottom: 1px lighten($black, 10%) solid;
+
+      &:last-of-type {
+         border-bottom: none;
+      }
+
+      h2 {
+         font-size: 28px;
+      }
+
+      .date {
+         color: darken($text, 30%);
+      }
+   }
+
+   form.signup {
+      padding-bottom: 0;
+      margin-bottom: 0;
+      
+      button {
+         margin-top: 10px;
+         margin-left: 0;
+      }
+   }
+   
+   /*
+   .calendar {
+      display: grid;
+      grid-template-rows: 9% 13% 13% 13% 13% 13% 13% 13% 9%;
+
+      @for $i from 1 through 7 {
+         .day:nth-child($i) {
+            grid-column-start: ($1 + 1); 
+         }
+      }
+   }
+   */
+}

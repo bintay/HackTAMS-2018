@@ -1,0 +1,20 @@
+extends base
+
+block body
+   include sidebar
+   section#main
+      h2.center.marginBottom.big= club.name
+      p.blockCenter !{club.description.replace(/</, '%lt;').replace(/\n/g, '<br>')}
+      if (!hasJoined)
+         form.small.center(action='/join/' + club.name, method='post')
+            button.full(type='submit', name='submit') Follow Club
+      else if (!owns)
+         form.small.center(action='/unjoin/' + club.name, method='post')
+            button.full(type='submit', name='submit') Unfollow Club
+      if (owns)
+         br
+         h2.center 
+            a.button.center(href='/new/post/' + club.name) New post
+      div.posts
+         each post in club.events
+            +post(post, post.title, post.content, post.start, post.end, post.posted)

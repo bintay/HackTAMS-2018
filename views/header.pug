@@ -1,0 +1,20 @@
+header
+   h1 
+      a(href="/") TAMS Clubs
+   p.left
+      if (!user)
+         a(href="/login/") Log In
+         | &nbsp;&nbsp;/&nbsp;&nbsp;
+         a(href="/signup/") Sign Up
+      else
+         // comment to fix syntax highlighting
+         span.dropdown
+            = user.username
+            | &nbsp;&nbsp;&nbsp;
+            i(class="fas fa-angle-down")
+            span.dropdownContent
+               span.invisible
+               svg(viewbox="0 0 5 10")
+                  path(d="M5 0 V10 L0.8 5.8 Q0 5 0.8 4.2z")
+               a(href="/settings/") Settings
+               a(href="/logout/") Log Out

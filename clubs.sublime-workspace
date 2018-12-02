@@ -1,0 +1,1270 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"redi",
+				"redirectIfLoggedOut"
+			],
+			[
+				"validae",
+				"validateUsername"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"sin",
+				"signupErrors"
+			],
+			[
+				"signup",
+				"signupErrors"
+			],
+			[
+				"sign",
+				"signupErrors"
+			],
+			[
+				"body",
+				"bodyParser"
+			],
+			[
+				"font",
+				"font-family"
+			],
+			[
+				"output",
+				"output_file"
+			],
+			[
+				"os",
+				"ofstream"
+			],
+			[
+				"getEle",
+				"getElementCount"
+			],
+			[
+				"digit",
+				"digitNumber"
+			],
+			[
+				"digi",
+				"digitNumber"
+			],
+			[
+				"numB",
+				"number_bytes"
+			],
+			[
+				"number",
+				"number_bytes"
+			],
+			[
+				"numb",
+				"number_bits"
+			],
+			[
+				"pr",
+				"prntSurfArea"
+			],
+			[
+				"columns",
+				"column_sum"
+			],
+			[
+				"colu",
+				"column_sum"
+			],
+			[
+				"Col",
+				"column_sum"
+			],
+			[
+				"row",
+				"row_sum"
+			],
+			[
+				"col",
+				"column_sum"
+			],
+			[
+				"R",
+				"ROW_SIZE"
+			],
+			[
+				"ro",
+				"ROW_SIZE"
+			],
+			[
+				"above",
+				"above_average"
+			],
+			[
+				"stdlib",
+				"cstdlib\tstandard header"
+			],
+			[
+				"sum",
+				"sumNumbers"
+			],
+			[
+				"keep",
+				"keepEnteringGrades"
+			],
+			[
+				"gene",
+				"geneStartIndex"
+			],
+			[
+				"geen",
+				"geneStartIndex"
+			],
+			[
+				"enro",
+				"enrollmentID"
+			],
+			[
+				"enr",
+				"enrollmentID"
+			],
+			[
+				"cour",
+				"courses"
+			],
+			[
+				"class",
+				"classification"
+			],
+			[
+				"out",
+				"outputFilename"
+			],
+			[
+				"num",
+				"numberCows"
+			],
+			[
+				"temp",
+				"tempRange"
+			],
+			[
+				"uni",
+				"unitsBought"
+			],
+			[
+				"gravi",
+				"gravityAcceleration"
+			],
+			[
+				"obj",
+				"objectHeightMeters"
+			],
+			[
+				"tempCp",
+				"tempCppFile"
+			],
+			[
+				"con",
+				"contentsBuffer"
+			],
+			[
+				"de",
+				"defaultOutputFile"
+			],
+			[
+				"prin",
+				"printUsageMessage"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"o",
+				"outputName"
+			],
+			[
+				"pro",
+				"process"
+			],
+			[
+				"isO",
+				"isPalindrome"
+			],
+			[
+				"purcha",
+				"purchaseValue"
+			],
+			[
+				"he",
+				"heightFeet"
+			],
+			[
+				"stdio",
+				"cstdio\tstandard header"
+			],
+			[
+				"v",
+				"velocity"
+			],
+			[
+				"S",
+				"Splash"
+			],
+			[
+				"gra",
+				"gravitationalAcceleration"
+			],
+			[
+				"random",
+				"randomCoeff"
+			],
+			[
+				"keyHa",
+				"keyHash"
+			],
+			[
+				"has",
+				"hashElement"
+			],
+			[
+				"except",
+				"stdexcept\tstandard header"
+			],
+			[
+				"poly",
+				"polynomial"
+			],
+			[
+				"rand",
+				"randomCoeff"
+			],
+			[
+				"game",
+				"gameElements"
+			],
+			[
+				"Game",
+				"gameElements"
+			],
+			[
+				"grid-row-",
+				"grid-row-start\tproperty"
+			],
+			[
+				"grid-temp",
+				"grid-template-rows\tproperty"
+			],
+			[
+				"mer",
+				"mergeSort"
+			],
+			[
+				"vec",
+				"vector\tstd::vector"
+			],
+			[
+				"inc",
+				"incorrect"
+			],
+			[
+				"test",
+				"testNumber"
+			],
+			[
+				"draw",
+				"drawIteration"
+			],
+			[
+				"App",
+				"AppNavbar"
+			],
+			[
+				"find_",
+				"find_urls"
+			],
+			[
+				"const",
+				"const_iterator"
+			],
+			[
+				"sie",
+				"size_type"
+			],
+			[
+				"map",
+				"map\tstandard header"
+			],
+			[
+				"math",
+				"cmath\tstandard header"
+			],
+			[
+				"size",
+				"size_type"
+			],
+			[
+				"fac",
+				"factorial"
+			],
+			[
+				"TELL",
+				"TELL"
+			],
+			[
+				"Tok",
+				"Tokenizer"
+			],
+			[
+				"board",
+				"boardPreMouse"
+			],
+			[
+				"i",
+				"inCircle"
+			],
+			[
+				"string",
+				"stringstream"
+			],
+			[
+				"st",
+				"stringList"
+			],
+			[
+				"c",
+				"c41b1b"
+			],
+			[
+				"cor",
+				"cornerPoints"
+			],
+			[
+				"color",
+				"colorTolerance"
+			],
+			[
+				"ca",
+				"capacity"
+			],
+			[
+				"My",
+				"MyLinkedList"
+			],
+			[
+				"getEleme",
+				"getElementsByClassName"
+			],
+			[
+				"O",
+				"obstacle"
+			],
+			[
+				"en",
+				"entities"
+			],
+			[
+				"pla",
+				"platforms"
+			],
+			[
+				"direct",
+				"directionIndex"
+			],
+			[
+				"direc",
+				"directionIndex"
+			],
+			[
+				"mouse",
+				"mouseDownPos"
+			],
+			[
+				"moen",
+				"moneyReadyToCollect"
+			],
+			[
+				"moneyRate",
+				"moneyRate"
+			],
+			[
+				"mone",
+				"moneyReadyToCollect"
+			],
+			[
+				"upda",
+				"updateStage"
+			],
+			[
+				"or",
+				"orbitron24"
+			],
+			[
+				"alig",
+				"vertical-align"
+			],
+			[
+				"head",
+				"headingFont"
+			],
+			[
+				"po",
+				"position"
+			],
+			[
+				"an",
+				"angularImpulse"
+			],
+			[
+				"art",
+				"artifactScoreInterval"
+			],
+			[
+				"par",
+				"particles1"
+			],
+			[
+				"shoot",
+				"shootSpeed"
+			],
+			[
+				"resp",
+				"respawnTime"
+			],
+			[
+				"time",
+				"timeCreated"
+			],
+			[
+				"parti",
+				"particles1"
+			],
+			[
+				"toOff",
+				"toOffset"
+			],
+			[
+				"update",
+				"updateSection"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"question",
+				"questionNumber"
+			],
+			[
+				"nextBut",
+				"nextButtonPressed"
+			],
+			[
+				"showAnswer",
+				"showAnswerButtonPressed"
+			],
+			[
+				"highligh",
+				"highlightArr"
+			],
+			[
+				"compo",
+				"componentDidMount\t Life Cycle"
+			],
+			[
+				"crea",
+				"createElement()\tReact"
+			],
+			[
+				"h",
+				"html\thtml"
+			],
+			[
+				"ob",
+				"PropTypes.object"
+			],
+			[
+				"Prop",
+				"PropTypes.array"
+			],
+			[
+				"csr",
+				"csrfToken"
+			],
+			[
+				"answe",
+				"answerElements"
+			],
+			[
+				"ans",
+				"answerElements"
+			],
+			[
+				"sh",
+				"shuffledAnswers"
+			],
+			[
+				"quesio",
+				"questionNumber"
+			],
+			[
+				"other",
+				"otherPlayer"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/User/love.sublime-build",
+					""
+				],
+				[
+					"Packages/User/scss.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/C++/C++ Single File.sublime-build",
+				"Run"
+			]
+		],
+		[
+			[
+				[
+					"Packages/Java/Ant.sublime-build",
+					""
+				],
+				[
+					"Packages/Java/JavaC.sublime-build",
+					""
+				],
+				[
+					"Packages/User/love.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/Java/JavaC.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Java/Ant.sublime-build",
+					""
+				],
+				[
+					"Packages/Java/JavaC.sublime-build",
+					""
+				],
+				[
+					"Packages/User/love.sublime-build",
+					""
+				],
+				[
+					"Packages/User/scss.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/Java/JavaC.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					""
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Traditional"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"PdfLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"XeLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"LuaLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - PdfLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - XeLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - LuaLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Script Builder"
+				]
+			],
+			[
+				"Packages/LaTeXTools/LaTeX.sublime-build",
+				"PdfLaTeX"
+			]
+		],
+		[
+			[
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					""
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Traditional"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"PdfLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"XeLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"LuaLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - PdfLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - XeLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - LuaLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Script Builder"
+				],
+				[
+					"Packages/User/love.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/LaTeXTools/LaTeX.sublime-build",
+				"PdfLaTeX"
+			]
+		],
+		[
+			[
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					""
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Traditional"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"PdfLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"XeLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"LuaLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - PdfLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - XeLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - LuaLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Script Builder"
+				],
+				[
+					"Packages/User/love.sublime-build",
+					""
+				],
+				[
+					"Packages/User/scss.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/LaTeXTools/LaTeX.sublime-build",
+				"PdfLaTeX"
+			]
+		],
+		[
+			[
+				[
+					"Packages/Lua/Lua.sublime-build",
+					""
+				],
+				[
+					"Packages/User/love.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/User/love.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Lua/Lua.sublime-build",
+					""
+				],
+				[
+					"Packages/User/love.sublime-build",
+					""
+				],
+				[
+					"Packages/User/scss.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/User/love.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/R/R.sublime-build",
+					""
+				],
+				[
+					"Packages/User/love.sublime-build",
+					""
+				],
+				[
+					"Packages/User/scss.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/R/R.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/User/love.sublime-build",
+					""
+				],
+				[
+					"Packages/User/scss.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/User/scss.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 239.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"c++",
+				"Build With: C++ Single File - Run"
+			],
+			[
+				"color",
+				"UI: Select Color Scheme"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"lint",
+				"Preferences: SublimeLinter Settings"
+			],
+			[
+				"disable",
+				"Package Control: Disable Package"
+			],
+			[
+				"jsx",
+				"Set Syntax: JSX"
+			],
+			[
+				"sublime",
+				"Preferences: SublimeLinter Settings"
+			],
+			[
+				"",
+				"Package Control: Remove Package"
+			],
+			[
+				"linter",
+				"SublimeLinter: Reload SublimeLinter and its Plugins"
+			],
+			[
+				"enable",
+				"Package Control: Enable Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"preference",
+				"Preferences: Settings"
+			],
+			[
+				"java",
+				"Set Syntax: Java"
+			],
+			[
+				"font",
+				"Set Syntax: Font"
+			],
+			[
+				"them",
+				"UI: Select Theme"
+			],
+			[
+				"colo",
+				"UI: Select Color Scheme"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"list pac",
+				"Package Control: List Packages"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control list",
+				"Package Control: List Packages"
+			],
+			[
+				"Package Control remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control",
+				"Package Control: List Packages"
+			],
+			[
+				"enable li",
+				"SublimeLinter: Enable Linting"
+			],
+			[
+				"linti",
+				"SublimeLinter: Disable Linting"
+			],
+			[
+				"text pastry",
+				"Text Pastry: From 1 To X"
+			],
+			[
+				"lua",
+				"Set Syntax: Lua"
+			],
+			[
+				"package list",
+				"Package Control: List Packages"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"latex",
+				"Set Syntax: LaTeX"
+			],
+			[
+				"css",
+				"CSSLint: Run CSSLint"
+			],
+			[
+				"pack",
+				"Install Package Control"
+			]
+		],
+		"width": 428.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/bent/Documents/programming/clubs",
+		"/Users/bent/Documents/programming/clubs/models",
+		"/Users/bent/Documents/programming/clubs/scss",
+		"/Users/bent/Documents/programming/clubs/views"
+	],
+	"file_history":
+	[
+		"/Users/bent/Documents/programming/clubs/server.js",
+		"/Users/bent/Documents/programming/clubs/views/header.pug",
+		"/Users/bent/Documents/programming/clubs/views/head.pug",
+		"/Users/bent/Documents/programming/clubs/models/User.js",
+		"/Users/bent/Documents/programming/clubs/views/settings.pug",
+		"/Users/bent/Documents/programming/clubs/views/profile.pug",
+		"/Users/bent/Documents/programming/clubs/scss/main.scss",
+		"/Users/bent/ec.txt",
+		"/Users/bent/Documents/programming/clubs/views/index.pug",
+		"/Users/bent/Documents/programming/clubs/views/sidebar.pug",
+		"/Users/bent/Documents/programming/clubs/views/home.pug",
+		"/Users/bent/Documents/programming/clubs/views/status.pug",
+		"/Users/bent/Documents/programming/clubs/views/base.pug",
+		"/Users/bent/Documents/programming/clubs/views/errors.pug",
+		"/Users/bent/Documents/programming/clubs/public/js/errors.js",
+		"/Users/bent/Documents/programming/clubs/views/login.pug",
+		"/Users/bent/Documents/programming/clubs/views/signup.pug",
+		"/Users/bent/Documents/programming/clubs/views/success.pug",
+		"/Users/bent/Documents/programming/clubs/models/Club.js",
+		"/Users/bent/Documents/programming/_old/quiz/quiz/views/base.pug",
+		"/Users/bent/Documents/programming/_old/quiz/quiz/views/index.pug",
+		"/Users/bent/Desktop/main.cpp",
+		"/Users/bent/Documents/programming/clubs/scss/_colors.scss",
+		"/Users/bent/Documents/programming/_old/quiz/quiz/index.js",
+		"/Users/bent/Documents/programming/_old/quiz/quiz/models/User.js",
+		"/Users/bent/Documents/school/csce1030lab/lab9/act9A.txt",
+		"/Users/bent/Documents/school/csce1030lab/lab9/Lab9A.cpp",
+		"/Users/bent/Documents/school/csce1030lab/lab9/Lab9B.cpp",
+		"/Users/bent/Documents/school/csce1030lab/lab9/Lab9C.cpp",
+		"/Users/bent/Documents/school/csce1030lab/lab9/act9B.txt",
+		"/Users/bent/Downloads/GloVe-1.2/src/glove.c",
+		"/Users/bent/Documents/programming/wassa2015/data/50meta.all",
+		"/Users/bent/Documents/programming/wassa2015/data/2000meta.all",
+		"/Users/bent/Documents/programming/wassa2015/data/2000g.all",
+		"/Users/bent/Documents/programming/wassa2015/data/100g.all",
+		"/Users/bent/Documents/programming/_old/gene1/main.lua",
+		"/Users/bent/Documents/programming/nltk/search1.json",
+		"/Users/bent/Documents/programming/wassa2015/data/50g.all",
+		"/Users/bent/Documents/programming/_old/FoE/source/main.lua",
+		"/Users/bent/Documents/programming/usaco/milk.cpp",
+		"/Users/bent/Documents/programming/wassa2015/data/50gb.all",
+		"/Users/bent/Documents/school/orgs.txt",
+		"/Users/bent/Desktop/front.svg",
+		"/Users/bent/Documents/school/stealth.json",
+		"/Users/bent/Desktop/in.txt",
+		"/Users/bent/Desktop/out.txt",
+		"/Users/bent/Documents/school/csce1030lab/lab8/Lab8A.cpp",
+		"/Users/bent/Documents/school/csce1030lab/lab8/Lab8B.cpp",
+		"/Users/bent/Documents/school/csce1030lab/lab8/Lab8C.cpp",
+		"/Users/bent/Desktop/robotics_precise.c",
+		"/Users/bent/Documents/school/csce1030/hw3/rbt0050HW3.cpp",
+		"/Users/bent/Documents/school/csce1030/hw3/algorithm.txt",
+		"/Users/bent/Documents/school/csce1030lab/lab7/Lab7A.cpp",
+		"/Users/bent/Documents/school/csce1030lab/lab7/Lab7B.cpp",
+		"/Users/bent/Documents/school/csce1030lab/lab7/Lab7C.cpp",
+		"/Users/bent/Downloads/rbt0050B-1.cpp",
+		"/Users/bent/Desktop/robotics.cpp",
+		"/Users/bent/Desktop/Thermodynamics Testing - Sheet1.csv",
+		"/Users/bent/Documents/school/csce1030/hw2/rbt0050HW2.cpp",
+		"/Users/bent/Downloads/chapter13.rhtml",
+		"/Users/bent/Documents/school/_old/_richland/comp-sci/uil/practice/2008-programming/State2008/Solutions/DNA.java",
+		"/Users/bent/Documents/school/_old/_richland/comp-sci/uil/practice/2008-programming/State2008/StateJudges/dna.dat",
+		"/Users/bent/Documents/school/_old/_richland/comp-sci/uil/practice/2008-programming/State2008/StateJudges/dna.out",
+		"/Users/bent/Documents/school/chem1413/edited_ENGL 1315 Short Essay 2 Draft 2b.pdf",
+		"/Users/bent/Documents/school/chem1413/ENGL 1315 Short Essay 2 Draft 2.pdf",
+		"/Users/bent/Documents/school/csce1030lab/lab6/Lab6D.cpp",
+		"/Users/bent/Documents/school/csce1030lab/lab6/Lab6A.cpp",
+		"/Users/bent/Documents/school/csce1030lab/lab6/Lab6B.cpp",
+		"/Users/bent/Documents/school/csce1030lab/lab6/Lab6C.cpp",
+		"/Users/bent/Desktop/a.cpp",
+		"/Users/bent/Documents/programming/temp.cpp",
+		"/Users/bent/Desktop/intro_asm_rev.S",
+		"/Users/bent/Desktop/pkcs7.py",
+		"/Users/bent/Desktop/animals.dd",
+		"/Users/bent/Desktop/store",
+		"/Users/bent/Desktop/source.c",
+		"/Users/bent/Desktop/roulette.c",
+		"/Users/bent/Desktop/temp.cpp",
+		"/Users/bent/Documents/latex/crypto/main.tex",
+		"/Users/bent/Documents/school/csce1030/hw2/algorithm.txt",
+		"/Users/bent/Documents/school/csce1030lab/lab5/Lab5A.cpp",
+		"/Users/bent/Documents/school/csce1030lab/lab5/Lab5B.cpp",
+		"/Users/bent/Documents/school/csce1030lab/lab5/Lab5C.cpp",
+		"/Users/bent/Documents/school/csce1030lab/lab5/Lab5D.cpp",
+		"/Users/bent/Documents/school/_old/_richland/AP Stats/final-project/report.tex/main.tex",
+		"/Users/bent/Downloads/rbt0050A.cpp",
+		"/Users/bent/Documents/school/_old/_richland/PAP English 2/bezos/main.tex",
+		"/Users/bent/Documents/school/csce1030/hw1/rbt0050HW1.cpp",
+		"/Users/bent/Documents/school/csce1030lab/lab4/Lab4A.cpp",
+		"/Users/bent/Desktop/vuln.c",
+		"/Users/bent/Desktop/absolutely-relative.c",
+		"/Users/bent/Desktop/animals_hex.txt",
+		"/Users/bent/Desktop/ciphertext",
+		"/Users/bent/Desktop/info.txt",
+		"/Users/bent/Desktop/hex_editor copy.txt",
+		"/Users/bent/Desktop/hex_editor.jpg",
+		"/Users/bent/Desktop/incidents.json",
+		"/Users/bent/Desktop/data.pcap",
+		"/Users/bent/Desktop/nowYouDont copy.txt",
+		"/Users/bent/Downloads/pico2018-special-logo.txt",
+		"/Users/bent/Downloads/pico2018-special-logo.bmp",
+		"/Users/bent/Downloads/password.lst",
+		"/Users/bent/Downloads/shadow",
+		"/Users/bent/Downloads/passwd",
+		"/Users/bent/Downloads/file",
+		"/Users/bent/Downloads/table.txt",
+		"/Users/bent/Downloads/rbt0050HW1-1.cpp",
+		"/Users/bent/Documents/school/tca/99ax8Fz8.txt",
+		"/Users/bent/Documents/school/csce1040/hw2/Hw2make.txt",
+		"/Users/bent/Documents/school/csce1040/hw2/Enrollment.h",
+		"/Users/bent/Documents/school/csce1040/hw2/Enrollment.cpp",
+		"/Users/bent/Documents/school/csce1040/hw2/Course.h",
+		"/Users/bent/Documents/school/csce1040/hw2/Course.cpp",
+		"/Users/bent/Documents/school/csce1040/hw2/Student.h",
+		"/Users/bent/Documents/school/csce1040/hw2/Student.cpp",
+		"/Users/bent/Documents/school/csce1040/hw2/Collection.h",
+		"/Users/bent/Documents/school/csce1040/hw2/test.txt",
+		"/Users/bent/Documents/school/csce1040/hw2/main.cpp",
+		"/Users/bent/Documents/school/csce1030lab/lab4/Lab4C.cpp",
+		"/Users/bent/Documents/school/csce1030lab/lab4/Lab4B.cpp",
+		"/Users/bent/Documents/school/csce1040/hw2/Collection.cpp",
+		"/Users/bent/Documents/school/csce1040/hw2/Enrollments.cpp",
+		"/Users/bent/Documents/school/csce1040/hw2/Enrollments.h",
+		"/Users/bent/Documents/programming/usaco/barn1.in",
+		"/Users/bent/Documents/programming/usaco/barn1.cpp",
+		"/Users/bent/Documents/school/tams/log.txt",
+		"/Users/bent/Documents/programming/renew/cpp-script/test.cpp",
+		"/Users/bent/Documents/programming/renew/cpp-script/renew.cpp"
+	],
+	"find":
+	{
+		"height": 40.0
+	},
+	"find_in_files":
+	{
+		"height": 133.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			", ",
+			"= null",
+			"\\\"",
+			"\\$background",
+			"accent",
+			"calc",
+			"csurfPro"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 19.0
+	},
+	"input":
+	{
+		"height": 47.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.SublimeLinter Messages":
+	{
+		"height": 91.0
+	},
+	"output.csslint_result_view":
+	{
+		"height": 88.0
+	},
+	"output.exec":
+	{
+		"height": 41.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.latextools":
+	{
+		"height": 127.0
+	},
+	"pinned_build_system": "",
+	"project": "clubs.sublime-project",
+	"replace":
+	{
+		"height": 40.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 204.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -1,0 +1,11 @@
+extends base
+
+block body
+   include sidebar
+   section#main
+      div.calendar
+         each day in week
+            div.day
+               each event in day
+                  if (event.start.getDate() == event.end.getDate())
+                     div.event(style='margin-top: ' + (event.start.getHours() + event.start.getMinutes() / 60) * 100 + '; height: ' + (event.end.getHours() - event.start.getHours() + (event.end.getMinutes() - event.start.getMinutes()) / 60) + ';')

@@ -1,0 +1,20 @@
+extends base
+block body
+   include sidebar
+   section#main
+      include errors
+      form(action='/settings/', method='post')
+         input(type="hidden" name="_csrf" value=csrfToken)
+         label Username
+         input(type='text' name='username' value=user.username)
+         br
+         label Bio
+         textarea(name='bio')= user.bio
+         br
+         label Email
+         input(type='email' name='email' value=user.email)
+         br
+         label Reset Password
+         input(type='password' name='password' placeholder='New Password')
+         br
+         input(type='submit' name='submit' value='Update Information')

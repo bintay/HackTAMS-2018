@@ -1,0 +1,11 @@
+extends base
+
+block body
+   include sidebar
+   section#main
+      h2.center Confirm Club Creation
+      form.add.small(action='/add/' method='post')
+         input(type="hidden" name="_csrf" value=csrfToken)
+         input(type='text', placeholder='Club name...', value=(clubName || ''), name='clubName')
+         textarea(name='description') This club needs a description!
+         input(type='submit', name='submit', value='Create club')

@@ -1,0 +1,33 @@
+extends base
+
+block body
+   include sidebar
+   section#main
+      form.search.small(action='/search/' method='post')
+         input(type='text', placeholder='Search clubs...', value='', name='clubName')
+         button(type='submit')
+            i.fas.fa-search
+         button(type='submit', formaction='/add/' formmethod='get')
+            i.fas.fa-plus
+      if (clubsOwned && clubsOwned.length != 0)
+         h2.center.big Owned
+         div.clubList
+            each club in clubsOwned
+               +club(club.name, club.description)
+      if (clubsFollowed && clubsFollowed.length != 0)
+         h2.center Followed
+         div.clubList
+            each club in clubsFollowed
+               +club(club.name, club.description)
+      else if (!clubsFound)
+         h2.center.big Followed
+         p.center No clubs followed!
+         p.center Search or create above
+      
+      if (clubsFound && clubsFound.length != 0)
+         h2.center.big Found
+         div.clubList
+            each club in clubsFound
+               +club(club.name, club.description)
+      else if (clubsFound)
+         p.center No clubs found for that query
