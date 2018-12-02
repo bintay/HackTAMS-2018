@@ -929,8 +929,6 @@ app.post('/signin/', redirectIfLoggedOut, function (req, res) {
 
       if (!club) {
          res.render('status', { title: 'Oops!', text: 'Club not found.', user: req.user, backURL: '/feed/', backText: 'Back to feed' });
-      } else if (req.user.clubsOwned.indexOf(club._id) == -1) {
-         res.render('status', { title: 'Oops!', text: 'You don\'t own this club.', user: req.user, backURL: '/club/' + club.name + '/', backText: 'Back to club page' });
       } else {
          var event;
          for (var i in club.events) {
