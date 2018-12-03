@@ -15,3 +15,5 @@ It's a club management app featuring
 - Volunteering sign ups
 - Volunteer hour tracker
 - Profiles
+
+Update: This project placed 1st!
