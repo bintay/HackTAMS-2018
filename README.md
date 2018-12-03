@@ -1,4 +1,4 @@
-# TAMS Clubs
+# TAMSHax
 ## HackTAMS 2018 Project
 
 So this was my first hackathon
