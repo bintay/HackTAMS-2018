@@ -1,6 +1,10 @@
 # TAMSHax
 ## HackTAMS 2018 Project
 
+Update: This project placed 1st!
+
+Demo: http://tams.club/
+
 So this was my first hackathon
 
 The code quality is... less than desirable
@@ -16,4 +20,3 @@ It's a club management app featuring
 - Volunteer hour tracker
 - Profiles
 
-Update: This project placed 1st!
