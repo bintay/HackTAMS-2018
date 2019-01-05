@@ -107,7 +107,7 @@ app.use(function (req, res, next) {
 // ***
 
 // Homepage
-app.get('/', function (req, res) {
+app.get('/', redirectIfLoggedOut, function (req, res) {
    if (req.session.userid) {
       res.redirect('/feed/')
       //res.render('home', { title: 'Home', user: req.user });
@@ -990,7 +990,7 @@ function redirectIfLoggedIn (req, res, next) {
 
 function redirectIfLoggedOut (req, res, next) {
    if (!req.session.userid) {
-      res.redirect('/');
+      res.redirect('/login/');
    } else {
       next();;
    }
