@@ -3,7 +3,7 @@
 
 Update: This project placed 1st!
 
-Demo: http://tams.club/
+Demo: http://tams.club/ (currently hosted on an angry raspberry pi, so it might not work)
 
 So this was my first hackathon
 
