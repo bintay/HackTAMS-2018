@@ -1,6 +1,10 @@
 extends base
 block body
    section#small
+      h1 TAMSHax
+      span.leftLogin 
+         a(href='/signup/') Sign Up
+      br
       include errors
       h2 Login
       form(action='/login/' method='post')

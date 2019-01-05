@@ -1,27 +1,41 @@
 @import "colors";
-@import url('https://fonts.googleapis.com/css?family=Dosis:400,700|Titillium+Web:400,700');
+//@import url('https://fonts.googleapis.com/css?family=Dosis:400,700|Titillium+Web:400,700');
+
+@font-face {
+  font-family: cmu;
+  src: url('../fonts/cmunrm.ttf');
+}
+
+@font-face {
+   font-family: cmuSans;
+   src: url('../fonts/cmunbmr.ttf');
+}
 
 html, body {
-   background: $black;
+   background: $white;
    margin: 0;
    padding: 0;
 
    h1, h2, h3, h4, h5, h6 {
       &, & a {
-         font-family: 'Dosis', sans-serif;
+         font-family: 'cmu', sans-serif;
          margin: 0;
-         color: $text;
+         color: $black;
          text-decoration: none;
       }
    }
 
    p, a, label, input, span, textarea, button {
-      font-family: 'Titillium Web', sans-serif;
+      font-family: 'cmuSans', sans-serif;
       margin: 0;
    }
 
    p, a, label, span {
-      color: $text;
+      color: $black;
+   }
+
+   a:hover {
+      color: $accent;
    }
 
    .marginBottom {
@@ -55,7 +69,7 @@ html, body {
    }
 
    header {
-      background: $darkGreen;
+      // background: $accent;
       padding: 30px;
       // position and z-index set so that the side bar shadow does not overlap the header
       position: relative;
@@ -75,7 +89,7 @@ html, body {
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            border: $lightGreen 2px solid;
+            border: $white 2px solid;
          }
 
          .name {
@@ -129,7 +143,7 @@ html, body {
                color: $black;
 
                &:hover {
-                  background: $grey;
+                  background: darken($white, 10%);
                }
             }
          }
@@ -155,11 +169,9 @@ html, body {
       grid-column-start: 1;
       grid-column-end: 2;
       // decoration on the side
-      border-right: solid 1px $darkGreen;
+      border-right: solid 1px $accent;
       box-shadow: 0 0 5px #000;
       padding: 30px 0;
-      padding-top: 287px;
-      top: -157px;
       height: calc(100vh);
 
       a {
@@ -174,13 +186,26 @@ html, body {
          i {
             display: inline-block;
             font-size: 30px;
+            position: relative;
+            top: 5px;
             width: 50px;
          }
 
          &:hover {
-            background: $darkGreen;
+            background: $accent;
             text-decoration: underline;
+            color: $white;
          }
+      }
+
+      h1 {
+         margin-bottom: 20px;
+      }
+
+      h1 a:hover {
+         background: none;
+         text-decoration: none;
+         color: $black;
       }
    }
 
@@ -206,8 +231,8 @@ html, body {
    .error {
       display: block;
       margin: 0 0 10px 0;
-      background: $lightGreen;
-      border: $darkGreen 2px solid;
+      background: $white;
+      border: $accent 2px solid;
       border-radius: 4px;
       width: calc(100% - 24px);
       padding: 10px;
@@ -220,14 +245,14 @@ html, body {
          width: 40%;
          margin: 0 30%;
          padding: 20px;
-         border-top: 1px lighten($background, 20%) solid;
+         border-top: 1px lighten($white, 20%) solid;
 
          &:last-of-type {
-            border-bottom: 1px lighten($background, 20%) solid;
+            border-bottom: 1px lighten($white, 20%) solid;
          }
 
          &:odd {
-            background: lighten($background, 10%);
+            background: lighten($white, 10%);
          }
 
          a {
@@ -240,9 +265,9 @@ html, body {
       height: 38.4px;
       margin: 0 0 0 10px;
       outline: none;
-      border: 2px $white solid;
-      background: $white;
+      border: 2px $black solid;
       color: $black;
+      background: $white;
       transition: background 0.1s, border 0.1s, color 0.1s;
 
       &.full {
@@ -251,14 +276,12 @@ html, body {
       }
 
       &:hover {
-         background: $lightGreen;
-         border: 2px solid $darkGreen;
-         color: $white;
+         border: 2px solid $accent;
       }
    }
 
    a.button {
-      font-family: 'Titillium Web', sans-serif;
+      font-family: 'cmuSans', sans-serif;
       line-height: 38.4px;
       height: 38.4px;
       font-weight: 400;
@@ -281,15 +304,16 @@ html, body {
          margin: 10px 0 0 0;
          padding: 10px;
          width: 100%;
-         border: 2px solid $white;
+         border: 2px solid $black;
          resize: vertical;
+         background: $white;
 
          &[name='bio'] {
             width: calc(100% - 100px);
          }
 
          &:focus {
-            border: 2px solid $darkGreen;
+            border: 2px solid $accent;
          }
       }
 
@@ -304,10 +328,10 @@ html, body {
          padding: 10px;
          background: $white;
          color: $black;
-         border: 2px solid $white;
+         border: 2px solid $black;
 
          &:focus {
-            border: 2px solid $darkGreen;
+            border: 2px solid $accent;
          }
 
          &[name='submit'] {
@@ -315,9 +339,7 @@ html, body {
             padding: 8px;
             transition: background 0.1s, border 0.1s, color 0.1s;
             &:hover {
-               background: $lightGreen;
-               border: 2px solid $darkGreen;
-               color: $white;
+               border: 2px solid $accent;
             }
          }
 
@@ -367,6 +389,7 @@ html, body {
       margin: 0 auto 0 auto;
       padding: 50px;
       border-bottom: 1px lighten($black, 10%) solid;
+      line-height: 1.5em;
 
       &:last-of-type {
          border-bottom: none;
@@ -377,7 +400,7 @@ html, body {
       }
 
       .date {
-         color: darken($text, 30%);
+         color: lighten($black, 30%);
       }
    }
 
@@ -409,7 +432,7 @@ html, body {
       height: 200px;
       border-radius: 50%;
       margin: 0 auto;
-      border: $lightGreen 4px solid;
+      border: $white 4px solid;
       box-shadow: 0 0 5px #0009;
    }
    
@@ -420,7 +443,8 @@ html, body {
       grid-template-columns: 49px $colWidth $colWidth $colWidth $colWidth $colWidth $colWidth $colWidth;
       grid-template-rows: 50px $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight $rowHeight;
       overflow-y: scroll;
-      height: calc(100vh - 160px);
+      height: calc(100vh - 65px);
+      border: 1px lighten($black, 60%) solid;
 
       .inner {
          position: relative;
@@ -429,26 +453,44 @@ html, body {
       h3 {
          position: fixed;
          z-index: 1;
-         background: $black;
+         background: $white;
+         border-bottom: 1px lighten($black, 60%) solid;
          width: calc(14% - 47px);
       }
 
+      .day:last-of-type h3 {
+         border-right: 1px lighten($black, 60%) solid;
+         width: calc(14% - 48px);
+      }
+
       .day {
-         border-left: 1px lighten($black, 10%) solid;
+         border-left: 1px lighten($black, 60%) solid;
          height: 2460px;
          grid-row-start: 1;
          grid-row-end: 25;
 
          &:last-of-type {
-            border-right: 1px lighten($black, 10%) solid;
+            border-right: 1px lighten($black, 60%) solid;
          }
 
          .event {
-            background: $lightGreen;
+            background: $accent;
             border-radius: 5px;
             padding: 20px;
             width: calc(97% - 40px);
             margin-left: 1.5%;
+
+            p {
+               color: $white;
+
+               a {
+                  color: $white;
+
+                  &:hover {
+                     color: $white;
+                  }
+               }
+            }
          }
       }
 
@@ -470,5 +512,14 @@ html, body {
             grid-row-end: $i + 2; 
          }
       }
+   }
+
+   .leftLogin {
+      display: block;
+      width: 100%;
+      text-align: right;
+      position: relative;
+      top: -30px;
+      text-decoration: underline;
    }
 }
